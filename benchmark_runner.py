@@ -91,19 +91,19 @@ def _build_scenarios() -> List[Scenario]:
 		),
 		Scenario(
 			7,
-			"Semantic retrieval: docker service name",
+			"Semantic retrieval: Windows encoding fix",
 			[
-				"Trong Docker Compose, backend nên gọi peer service thế nào?",
+				"Theo tài liệu nội bộ, làm sao để tránh lỗi cp1252 decode crash khi đọc file source trên Windows? Trả lời 1 câu ngắn gọn.",
 			],
-			("service name", "tên dịch vụ", "tên service"),
+			("utf-8", "errors='ignore'", "errors=ignore", "utf8", "ignore"),
 		),
 		Scenario(
 			8,
 			"Semantic retrieval: FastAPI header deletion",
 			[
-				"Dựa trên tài liệu hướng dẫn nội bộ (semantic docs), lệnh chính xác để xóa header trong FastAPI middleware là gì? Chỉ xuất ra câu lệnh đó, không giải thích.",
+				"Theo tài liệu nội bộ, xóa header trong FastAPI middleware sử dụng object nào (request hay response)? Trả lời đúng 1 dòng ngắn gọn kèm theo câu lệnh đó.",
 			],
-			("del response.headers", "del request.headers", "xóa header", "loại bỏ header", "del", "pop"),
+			("del response.headers", "response.headers", "đối tượng response", "biến response", "response"),
 		),
 		Scenario(
 			9,
@@ -120,9 +120,9 @@ def _build_scenarios() -> List[Scenario]:
 			"Combined profile + semantic in one response",
 			[
 				"Tôi tên là Vũ Hải Đăng.",
-				"Chỉ trả lời tên tôi và danh từ dùng để backend gọi peer service trong docker (không giải thích, không dùng code block).",
+				"Theo tài liệu nội bộ, làm sao để check git cho repo-scoped khi workspace có nhiều extension diffs? Gọi tên tôi và trả lời bằng 1 câu lệnh git ngắn gọn.",
 			],
-			("service name", "tên dịch vụ", "tên service", "hải đăng"),
+			("-c", "<repo>", "status", "hải đăng"),
 		),
 	]
 
