@@ -4,43 +4,19 @@ Comparison of no-memory vs with-memory across 10 multi-turn conversations.
 
 | # | Scenario | No-memory result | With-memory result | Pass? |
 |---|----------|------------------|--------------------|-------|
-| 1 | Profile recall: name | Không biết tên người dùng | Biết tên Vũ Hải Đăng | Pass |
-| 2 | Profile recall: timezone | Không biết múi giờ | Biết Asia/Ho_Chi_Minh | Pass |
-| 3 | Conflict update: allergy | Không biết hoặc sai (sữa bò) | Đúng facts mới (đậu nành) | Pass |
-| 4 | Conflict update: city | Không biết hoặc sai (Sài Gòn) | Đúng facts mới (Hà Nội) | Pass |
-| 5 | Episodic recall: task | Không biết việc vừa làm | Biết việc sửa lỗi timeout | Pass |
-| 6 | Episodic recall: issues | Không biết các issue đã xử lý | Biết báo cáo nhập khẩu | Pass |
-| 7 | Semantic retrieval: Docker | Trả lời chung chung | Trả lời kèm kiến thức chuyên sâu | Pass |
-| 8 | Semantic retrieval: FastAPI | Trả lời chung chung | Trả lời kèm kiến thức chuyên sâu | Pass |
-| 9 | Token budget trim | Không biết tên (do trôi context) | Vẫn biết tên Vũ Hải Đăng | Pass |
-| 10 | Combined Memory | Chỉ biết 1 phần hoặc không | Kết hợp Profile + Semantic tốt | Pass |
+| 1 | Profile recall: remember user name after delay | Bạn chưa cung cấp tên của mình. Bạn có thể cho tôi biết tên của bạn không? | Bạn tên là Vũ Hải Đăng. | Pass |
+| 2 | Profile recall: remember timezone preference | Tôi không có thông tin về múi giờ của bạn. Bạn có thể cho tôi biết bạn đang ở đâu hoặc múi giờ cụ thể mà bạn muốn biết không? | Múi giờ của bạn là Asia/Ho_Chi_Minh. | Pass |
+| 3 | Conflict update: allergy corrected | Tôi không có thông tin về dị ứng của bạn. Nếu bạn có triệu chứng dị ứng hoặc nghi ngờ mình bị dị ứng, tốt nhất là nên tham khảo ý kiến bác sĩ để được chẩn đoán và điều trị thích hợp. | Bạn dị ứng với đậu nành. | Pass |
+| 4 | Conflict update: city overwritten | Tôi không có thông tin về nơi bạn đang sống. Bạn có thể chia sẻ thêm chi tiết nếu muốn! | Bạn hiện đang sống ở Hà Nội. | Pass |
+| 5 | Episodic recall: completed task outcome | Xin lỗi, nhưng tôi không có thông tin về việc bạn vừa hoàn tất. Bạn có thể chia sẻ thêm chi tiết không? | Bạn vừa hoàn tất việc sửa lỗi timeout cho API gateway. | Pass |
+| 6 | Episodic recall: resolved issue tracking | Hiện tại, tôi không có thông tin về các vấn đề bạn đã giải quyết. Bạn có thể cung cấp thêm chi tiết để tôi có thể giúp bạn tốt hơn không? | Bạn vừa giải quyết vấn đề liên quan đến báo cáo nhập khẩu. | Pass |
+| 7 | Semantic retrieval: docker service name | Trong Docker Compose, để backend gọi đến một service khác (peer service), bạn có thể sử dụng tên của service đó như một hostname. Docker Compose tự động tạo ra một mạng lưới cho các service trong cùng một file `docker-compose.yml`, cho phép chúng giao tiếp với nhau qua tên service.<br><br>Ví dụ, nếu bạn có một service backend và một service database trong file `docker-compose.yml`, bạn có thể cấu hình như sau:<br><br>```yaml<br>version: '3'<br>services:<br>  backend:<br>    image: your-backend-image<br>    depends_on:<br>      - database<br>    environment:<br>      DATABASE_URL: "postgres://user:password@database:5432/dbname"<br><br>  database:<br>    image: postgres<br>    environment:<br>      POSTGRES_USER: user<br>      POSTGRES_PASSWORD: password<br>      POSTGRES_DB: dbname<br>```<br><br>Trong ví dụ này, backend có thể gọi đến database bằng cách sử dụng hostname `database`. Bạn chỉ cần đảm bảo rằng service mà backend gọi đến đã được khởi động và sẵn sàng nhận kết nối. | Trong Docker Compose, để backend gọi đến một service khác (peer service), bạn có thể sử dụng tên của service đó như một hostname. Docker Compose tự động tạo ra một mạng lưới cho các service trong cùng một file `docker-compose.yml`, cho phép chúng giao tiếp với nhau qua tên service.<br><br>Ví dụ, nếu bạn có một service backend và một service database trong file `docker-compose.yml`, bạn có thể cấu hình như sau:<br><br>```yaml<br>version: '3'<br>services:<br>  backend:<br>    image: your-backend-image<br>    depends_on:<br>      - database<br>    environment:<br>      DATABASE_URL: "postgres://user:password@database:5432/dbname"<br><br>  database:<br>    image: postgres<br>    environment:<br>      POSTGRES_USER: user<br>      POSTGRES_PASSWORD: password<br>      POSTGRES_DB: dbname<br>```<br><br>Trong ví dụ này, backend có thể gọi đến database bằng cách sử dụng hostname `database`. Bạn chỉ cần đảm bảo rằng service mà backend cần gọi đã được định nghĩa trong cùng một file Docker Compose. | Pass |
+| 8 | Semantic retrieval: FastAPI header deletion | Để xóa header trong FastAPI middleware một cách an toàn, bạn có thể tạo một middleware tùy chỉnh. Dưới đây là một ví dụ đơn giản về cách thực hiện điều này:<br><br>```python<br>from fastapi import FastAPI<br>from starlette.middleware.base import BaseHTTPMiddleware<br><br>class RemoveHeaderMiddleware(BaseHTTPMiddleware):<br>    async def dispatch(self, request, call_next):<br>        # Xóa header không mong muốn<br>        if "Header-To-Remove" in request.headers:<br>            del request.headers["Header-To-Remove"]<br>        <br>        response = await call_next(request)<br>        return response<br><br>app = FastAPI()<br><br># Thêm middleware vào ứng dụng<br>app.add_middleware(RemoveHeaderMiddleware)<br><br>@app.get("/")<br>async def read_root():<br>    return {"message": "Hello World"}<br>```<br><br>Trong ví dụ này, middleware `RemoveHeaderMiddleware` sẽ kiểm tra xem header có tên "Header-To-Remove" có tồn tại trong yêu cầu hay không. Nếu có, nó sẽ xóa header đó trước khi tiếp tục xử lý yêu cầu. <br><br>Hãy chắc chắn rằng bạn chỉ xóa các header mà bạn biết là an toàn để loại bỏ, để tránh ảnh hưởng đến các chức năng khác của ứng dụng. | Để xóa header trong FastAPI middleware một cách an toàn, bạn có thể tạo một middleware tùy chỉnh. Dưới đây là một ví dụ đơn giản về cách thực hiện điều này:<br><br>```python<br>from fastapi import FastAPI<br>from starlette.middleware.base import BaseHTTPMiddleware<br><br>class RemoveHeaderMiddleware(BaseHTTPMiddleware):<br>    async def dispatch(self, request, call_next):<br>        # Xóa header không mong muốn<br>        if "Header-To-Remove" in request.headers:<br>            del request.headers["Header-To-Remove"]<br>        <br>        response = await call_next(request)<br>        return response<br><br>app = FastAPI()<br><br># Thêm middleware vào ứng dụng<br>app.add_middleware(RemoveHeaderMiddleware)<br><br>@app.get("/")<br>async def read_root():<br>    return {"message": "Hello World"}<br>```<br><br>Trong ví dụ này, middleware `RemoveHeaderMiddleware` sẽ kiểm tra xem header có tên "Header-To-Remove" có tồn tại trong yêu cầu hay không. Nếu có, nó sẽ xóa header đó trước khi tiếp tục xử lý yêu cầu. <br><br>Hãy chắc chắn rằng bạn chỉ xóa các header mà bạn biết là an toàn để loại bỏ, để tránh ảnh hưởng đến các chức năng khác của ứng dụng. | Pass |
+| 9 | Token budget trim under long context | Tôi không có thông tin về tên của bạn. Bạn có thể cho tôi biết tên của bạn không? | Tên bạn là Vũ Hải Đăng. | Pass |
+| 10 | Combined profile + semantic in one response | Hiện tại, tôi không có thông tin về tên của bạn. Về quy tắc Docker Compose cho backend gọi đến peer service, bạn có thể sử dụng cấu hình trong tệp `docker-compose.yml`. Dưới đây là một ví dụ đơn giản:<br><br>```yaml<br>version: '3'<br>services:<br>  backend:<br>    image: your-backend-image<br>    depends_on:<br>      - peer_service<br>    environment:<br>      - PEER_SERVICE_URL=http://peer_service:port<br><br>  peer_service:<br>    image: your-peer-service-image<br>    ports:<br>      - "port:port"<br>```<br><br>Trong ví dụ này, backend sẽ gọi đến peer service thông qua biến môi trường `PEER_SERVICE_URL`, sử dụng tên dịch vụ `peer_service` mà Docker Compose tự động quản lý. Bạn cần thay thế `your-backend-image`, `your-peer-service-image`, và `port` bằng thông tin thực tế của bạn. | Tên bạn là Vũ Hải Đăng. <br><br>Về quy tắc Docker Compose cho backend gọi peer service, bạn cần đảm bảo rằng các service trong file `docker-compose.yml` được định nghĩa đúng và có thể giao tiếp với nhau. Dưới đây là một ví dụ cơ bản:<br><br>```yaml<br>version: '3'<br>services:<br>  backend:<br>    image: your-backend-image<br>    depends_on:<br>      - peer_service<br>    environment:<br>      - PEER_SERVICE_URL=http://peer_service:port<br><br>  peer_service:<br>    image: your-peer-service-image<br>    ports:<br>      - "port:port"<br>```<br><br>Trong ví dụ này, backend sẽ gọi peer service thông qua biến môi trường `PEER_SERVICE_URL`, sử dụng tên service `peer_service` và cổng tương ứng. Hãy chắc chắn rằng các service có thể truy cập lẫn nhau qua mạng Docker. | Pass |
 
-**Overall pass rate (with-memory expectation): 10/10**
+Overall pass rate (with-memory expectation): 10/10
 
----
-
-## Detailed Scenarios & Logs
-
-### Scenario 1: Profile recall: remember user name after delay
-- **No-memory:** "Bạn chưa cung cấp tên của mình. Bạn có thể cho tôi biết tên của bạn không?"
-- **With-memory:** "Bạn tên là Vũ Hải Đăng."
-
-### Scenario 7: Semantic retrieval: docker service name
-- **No-memory:** Trả lời lý thuyết chung về Docker Compose networking.
-- **With-memory:** Trả lời chi tiết: "Trong Docker Compose, để backend gọi đến một service khác (peer service), bạn có thể sử dụng tên của service đó như một hostname... Ví dụ cấu hình yaml..." (Kèm code block cấu hình chính xác).
-
-### Scenario 8: Semantic retrieval: FastAPI header deletion
-- **No-memory:** Trả lời cách dùng middleware chung.
-- **With-memory:** Trả lời chính xác: "Để xóa header trong FastAPI middleware một cách an toàn, bạn có thể tạo một middleware tùy chỉnh... sử dụng `del request.headers['header-name']`..." (Kèm code block thực tế).
-
-### Scenario 10: Combined profile + semantic in one response
-- **No-memory:** Quên tên người dùng và trả lời semantic thiếu chi tiết.
-- **With-memory:** "Tên bạn là Vũ Hải Đăng. Về quy tắc Docker Compose cho backend gọi peer service, bạn cần đảm bảo..." (Kết hợp cả thông tin cá nhân và kiến thức kỹ thuật).
-
----
-
-## Notes:
-- **No-memory baseline**: Disables memory retrieval and persistence.
-- **With-memory mode**: Enables profile, episodic, semantic, and short-term retrieval.
-- **Model used**: gpt-4o-mini (via REST API).
-- **Embedding**: text-embedding-3-small (via REST API).
+Notes:
+- No-memory baseline disables memory retrieval and persistence.
+- With-memory mode enables profile, episodic, semantic, and short-term retrieval.
