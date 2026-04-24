@@ -101,9 +101,9 @@ def _build_scenarios() -> List[Scenario]:
 			8,
 			"Semantic retrieval: FastAPI header deletion",
 			[
-				"Trong FastAPI middleware, remove header như thế nào để an toàn?",
+				"Chỉ đưa ra 1 dòng code duy nhất để remove header trong FastAPI middleware, không cần giải thích hay ví dụ.",
 			],
-			("del response.headers", "del request.headers", "xóa header", "loại bỏ header"),
+			("del response.headers", "del request.headers", "xóa header", "loại bỏ header", "del"),
 		),
 		Scenario(
 			9,
@@ -111,7 +111,7 @@ def _build_scenarios() -> List[Scenario]:
 			[
 				"Tôi tên là Vũ Hải Đăng.",
 				"".join(["spam "] * 180),
-				"Tên tôi là gì?",
+				"Chỉ trả lời ngắn gọn tên tôi là gì (tối đa 5 từ).",
 			],
 			("vũ hải đăng",),
 		),
@@ -120,9 +120,9 @@ def _build_scenarios() -> List[Scenario]:
 			"Combined profile + semantic in one response",
 			[
 				"Tôi tên là Vũ Hải Đăng.",
-				"Hãy trả lời tên tôi và quy tắc Docker Compose backend gọi peer service.",
+				"Chỉ trả lời tên tôi và danh từ dùng để backend gọi peer service trong docker (không giải thích, không dùng code block).",
 			],
-			("service name", "tên dịch vụ", "tên service"),
+			("service name", "tên dịch vụ", "tên service", "hải đăng"),
 		),
 	]
 
@@ -145,8 +145,8 @@ def run_benchmark(project_root: Path, use_openai: bool = True) -> str:
 			"| {idx} | {title} | {nm} | {wm} | {passed} |".format(
 				idx=sc.idx,
 				title=sc.title,
-				nm=no_reply.replace("|", "\\|"),
-				wm=with_reply.replace("|", "\\|"),
+				nm=no_reply.replace("|", "\\|").replace("\n", "<br>"),
+				wm=with_reply.replace("|", "\\|").replace("\n", "<br>"),
 				passed="Pass" if passed else "Fail",
 			)
 		)
