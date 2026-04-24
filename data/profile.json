@@ -24,6 +24,41 @@
         "new_value": "Vũ Hải Đăng",
         "source": "llm_extractor",
         "timestamp": "2026-04-24T05:41:04.110722+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:40:34.723170+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:44:33.087367+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:48:35.100788+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:49:21.826359+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:00:00.948107+00:00"
       }
     ]
   },
@@ -52,12 +87,47 @@
         "new_value": "Asia/Ho_Chi_Minh",
         "source": "llm_extractor",
         "timestamp": "2026-04-24T05:41:26.336567+00:00"
+      },
+      {
+        "key": "timezone",
+        "old_value": "Asia/Ho_Chi_Minh",
+        "new_value": "Asia/Ho_Chi_Minh",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:40:59.433025+00:00"
+      },
+      {
+        "key": "timezone",
+        "old_value": "Asia/Ho_Chi_Minh",
+        "new_value": "Asia/Ho_Chi_Minh",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:44:59.096233+00:00"
+      },
+      {
+        "key": "timezone",
+        "old_value": "Asia/Ho_Chi_Minh",
+        "new_value": "Asia/Ho_Chi_Minh",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:49:00.064636+00:00"
+      },
+      {
+        "key": "timezone",
+        "old_value": "Asia/Ho_Chi_Minh",
+        "new_value": "Asia/Ho_Chi_Minh",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:49:46.725116+00:00"
+      },
+      {
+        "key": "timezone",
+        "old_value": "Asia/Ho_Chi_Minh",
+        "new_value": "Asia/Ho_Chi_Minh",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:00:13.513247+00:00"
       }
     ]
   },
   "wm_3": {
     "profile": {
-      "allergy": "đậu nành"
+      "allergy": "hải sản"
     },
     "history": [
       {
@@ -101,6 +171,76 @@
         "new_value": "đậu nành",
         "source": "llm_extractor",
         "timestamp": "2026-04-24T05:41:48.163103+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "đậu nành",
+        "new_value": "sữa bò",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:41:20.015326+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "sữa bò",
+        "new_value": "đậu nành",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:41:23.194688+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "đậu nành",
+        "new_value": "sữa bò",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:45:17.733784+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "sữa bò",
+        "new_value": "đậu nành",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:45:21.205508+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "đậu nành",
+        "new_value": "sữa bò",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:49:19.704034+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "sữa bò",
+        "new_value": "đậu nành",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:49:23.718239+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "đậu nành",
+        "new_value": "sữa bò",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:50:05.908376+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "sữa bò",
+        "new_value": "đậu nành",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:50:08.785612+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "đậu nành",
+        "new_value": "đậu phộng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:00:26.698564+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "đậu phộng",
+        "new_value": "hải sản",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:00:29.723701+00:00"
       }
     ]
   },
@@ -150,6 +290,76 @@
         "new_value": "Hà Nội",
         "source": "llm_extractor",
         "timestamp": "2026-04-24T05:41:59.835009+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Hà Nội",
+        "new_value": "Đà Nẵng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:41:32.841520+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Đà Nẵng",
+        "new_value": "Hà Nội",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:41:36.161693+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Hà Nội",
+        "new_value": "Đà Nẵng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:45:31.067568+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Đà Nẵng",
+        "new_value": "Hà Nội",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:45:34.314159+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Hà Nội",
+        "new_value": "Đà Nẵng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:49:33.539620+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Đà Nẵng",
+        "new_value": "Hà Nội",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:49:36.475088+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Hà Nội",
+        "new_value": "Đà Nẵng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:50:18.460725+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Đà Nẵng",
+        "new_value": "Hà Nội",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:50:21.443545+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Hà Nội",
+        "new_value": "Đà Nẵng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:00:39.113619+00:00"
+      },
+      {
+        "key": "city",
+        "old_value": "Đà Nẵng",
+        "new_value": "Hà Nội",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:00:41.503688+00:00"
       }
     ]
   },
@@ -178,6 +388,41 @@
         "new_value": "Vũ Hải Đăng",
         "source": "llm_extractor",
         "timestamp": "2026-04-24T05:42:45.334806+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:42:18.768592+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:46:17.658054+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:50:19.713340+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:50:57.393006+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:01:21.740260+00:00"
       }
     ]
   },
@@ -206,6 +451,119 @@
         "new_value": "Vũ Hải Đăng",
         "source": "llm_extractor",
         "timestamp": "2026-04-24T05:42:58.840029+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:42:30.402355+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:46:28.311803+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:50:31.258018+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:51:08.492465+00:00"
+      },
+      {
+        "key": "name",
+        "old_value": "Vũ Hải Đăng",
+        "new_value": "Vũ Hải Đăng",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:01:31.453690+00:00"
+      }
+    ]
+  },
+  "wm_8": {
+    "profile": {
+      "name": "Alice",
+      "allergy": "sữa"
+    },
+    "history": [
+      {
+        "key": "name",
+        "old_value": null,
+        "new_value": "Alice",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:46:10.938969+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": null,
+        "new_value": "sữa",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T09:46:10.940461+00:00"
+      }
+    ]
+  },
+  "rubric_conflict_check": {
+    "profile": {
+      "allergy": "đậu nành"
+    },
+    "history": [
+      {
+        "key": "allergy",
+        "old_value": null,
+        "new_value": "sữa bò",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:05:25.133468+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "sữa bò",
+        "new_value": "đậu nành",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:05:28.214050+00:00"
+      }
+    ]
+  },
+  "rubric_conflict_check_2": {
+    "profile": {
+      "allergy": "đậu nành"
+    },
+    "history": [
+      {
+        "key": "allergy",
+        "old_value": null,
+        "new_value": "sữa bò",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:05:47.720291+00:00"
+      },
+      {
+        "key": "allergy",
+        "old_value": "sữa bò",
+        "new_value": "đậu nành",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:05:50.513445+00:00"
+      }
+    ]
+  },
+  "rubric_name_check": {
+    "profile": {
+      "name": "Vu Hai Dang"
+    },
+    "history": [
+      {
+        "key": "name",
+        "old_value": null,
+        "new_value": "Vu Hai Dang",
+        "source": "llm_extractor",
+        "timestamp": "2026-04-24T10:06:09.688021+00:00"
       }
     ]
   }

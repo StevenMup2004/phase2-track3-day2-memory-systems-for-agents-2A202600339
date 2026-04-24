@@ -25,19 +25,45 @@ def _run_conversation(agent: MemoryAgent, user_id: str, turns: list[str]) -> str
 
 
 def _judge_pass(reply: str, expected_contains: tuple[str, ...]) -> bool:
-	return any(ex.lower() in reply.lower() for ex in expected_contains)
+	low = reply.lower()
+	return all(ex.lower() in low for ex in expected_contains)
+
+
+def _build_benchmark_semantic_docs() -> list[dict]:
+	"""Semantic corpus used in benchmark to test retrieval on realistic policies."""
+	return [
+		{
+			"id": "policy-qd17",
+			"text": "Theo quy chế nội bộ QD-17, khiếu nại cấp 1 phải được phản hồi trong 36 giờ.",
+			"tags": ["quy-che", "khieu-nai"],
+		},
+		{
+			"id": "policy-ht22",
+			"text": "Theo quy trình HT-22, hồ sơ KYC nhóm B phải lưu tối thiểu 18 tháng.",
+			"tags": ["kyc", "lưu-trữ"],
+		},
+		{
+			"id": "policy-bm47",
+			"text": "Theo hướng dẫn BM-47, giao dịch treo cần hoàn tiền trong 5 ngày làm việc.",
+			"tags": ["hoan-tien", "ngan-hang"],
+		},
+		{
+			"id": "policy-pl09",
+			"text": "Theo điều khoản PL-09, hợp đồng thử việc cần báo trước 3 ngày.",
+			"tags": ["hop-dong", "lao-dong"],
+		},
+	]
 
 
 def _build_scenarios() -> List[Scenario]:
 	return [
 		Scenario(
 			1,
-			"Profile recall: remember user name after delay",
+			"Profile recall: remember user name after daily planning",
 			[
-				"Tôi tên là Vũ Hải Đăng.",
-				"Hãy nêu 3 mẹo debug Python.",
-				"Cảm ơn.",
-				"Tôi tên là gì?",
+				"Mình tên là Vũ Hải Đăng.",
+				"Tuần này mình đang chuẩn bị hồ sơ vay mua xe.",
+				"Nhắc lại tên mình là gì?",
 			],
 			("vũ hải đăng",),
 		),
@@ -45,9 +71,9 @@ def _build_scenarios() -> List[Scenario]:
 			2,
 			"Profile recall: remember timezone preference",
 			[
-				"Tôi ở múi giờ Asia/Ho_Chi_Minh.",
-				"Cho tôi checklist deploy nhanh.",
-				"Timezone của tôi là gì?",
+				"Mình đang sống ở múi giờ Asia/Ho_Chi_Minh.",
+				"Lịch uống thuốc của mình là 7h sáng hằng ngày.",
+				"Múi giờ mình dùng là gì?",
 			],
 			("asia/ho_chi_minh",),
 		),
@@ -55,63 +81,65 @@ def _build_scenarios() -> List[Scenario]:
 			3,
 			"Conflict update: allergy corrected",
 			[
-				"Tôi dị ứng sữa bò.",
-				"À nhầm, tôi dị ứng đậu nành chứ không phải sữa bò.",
-				"Tôi dị ứng gì?",
+				"Mình dị ứng đậu phộng.",
+				"Đính chính: mình dị ứng hải sản, không phải đậu phộng.",
+				"Mình dị ứng gì?",
 			],
-			("đậu nành",),
+			("hải sản",),
 		),
 		Scenario(
 			4,
 			"Conflict update: city overwritten",
 			[
-				"Tôi sống ở Đà Nẵng.",
-				"Xin sửa, hiện tại tôi sống ở Hà Nội.",
-				"Tôi đang sống ở đâu?",
+				"Hiện tại mình sống ở Đà Nẵng.",
+				"Cập nhật giúp: giờ mình chuyển ra Hà Nội.",
+				"Mình đang sống ở đâu?",
 			],
 			("hà nội",),
 		),
 		Scenario(
 			5,
-			"Episodic recall: completed task outcome",
+			"Episodic recall: completed administrative task",
 			[
-				"Đã fixed xong bug timeout cho API gateway.",
-				"Tôi vừa hoàn tất việc gì?",
+				"Đã xong việc nộp hồ sơ hoàn phí trước bạ cho xe máy.",
+				"Mình vừa hoàn tất việc gì?",
 			],
-			("timeout",),
+			("trước bạ",),
 		),
 		Scenario(
 			6,
-			"Episodic recall: resolved issue tracking",
+			"Episodic recall: resolved complaint ticket",
 			[
-				"Issue import report đã resolved và xong.",
-				"Tôi vừa giải quyết issue nào?",
+				"Vụ khiếu nại mã KN-8841 đã resolved xong.",
+				"Mình vừa giải quyết vụ nào?",
 			],
-			("issue", "vấn đề", "import report", "báo cáo nhập"),
+			("kn-8841",),
 		),
 		Scenario(
 			7,
-			"Semantic retrieval: Windows encoding fix",
+			"Semantic retrieval: complaint response SLA policy",
 			[
-				"Theo tài liệu nội bộ, làm sao để tránh lỗi cp1252 decode crash khi đọc file source trên Windows? Trả lời 1 câu ngắn gọn.",
+				"Chiều nay nhớ nhắc mình ký hợp đồng thuê kho.",
+				"Theo quy chế nội bộ QD-17, khiếu nại cấp 1 phải phản hồi trong bao lâu? Trả lời kèm cấp ưu tiên.",
 			],
-			("utf-8", "errors='ignore'", "errors=ignore", "utf8", "ignore"),
+			("36 giờ", "cấp 1"),
 		),
 		Scenario(
 			8,
-			"Semantic retrieval: FastAPI header deletion",
+			"Semantic retrieval: KYC retention policy",
 			[
-				"Theo tài liệu nội bộ, xóa header trong FastAPI middleware sử dụng object nào (request hay response)? Trả lời đúng 1 dòng ngắn gọn kèm theo câu lệnh đó.",
+				"Sáng mai nhắc mình mang CCCD đi ngân hàng.",
+				"Theo quy trình HT-22, hồ sơ KYC nhóm B phải lưu tối thiểu bao lâu?",
 			],
-			("del response.headers", "response.headers", "đối tượng response", "biến response", "response"),
+			("18 tháng", "nhóm b"),
 		),
 		Scenario(
 			9,
 			"Token budget trim under long context",
 			[
-				"Tôi tên là Vũ Hải Đăng.",
+				"Mình tên là Vũ Hải Đăng.",
 				"".join(["spam "] * 180),
-				"Chỉ trả lời ngắn gọn tên tôi là gì (tối đa 5 từ).",
+				"Trả lời đúng 1 cụm ngắn: tên mình là gì?",
 			],
 			("vũ hải đăng",),
 		),
@@ -119,10 +147,10 @@ def _build_scenarios() -> List[Scenario]:
 			10,
 			"Combined profile + semantic in one response",
 			[
-				"Tôi tên là Vũ Hải Đăng.",
-				"Theo tài liệu nội bộ, làm sao để check git cho repo-scoped khi workspace có nhiều extension diffs? Gọi tên tôi và trả lời bằng 1 câu lệnh git ngắn gọn.",
+				"Mình tên là Vũ Hải Đăng.",
+				"Theo hướng dẫn BM-47, giao dịch treo phải hoàn tiền trong bao lâu? Nhớ gọi tên mình trước.",
 			],
-			("-c", "<repo>", "status", "hải đăng"),
+			("vũ hải đăng", "5 ngày làm việc"),
 		),
 	]
 
@@ -131,6 +159,7 @@ def run_benchmark(project_root: Path, use_openai: bool = True) -> str:
 	scenarios = _build_scenarios()
 	with_memory = MemoryAgent(project_root=project_root, enable_memory=True, use_openai=use_openai)
 	no_memory = MemoryAgent(project_root=project_root, enable_memory=False, use_openai=use_openai)
+	with_memory.semantic.index_documents(_build_benchmark_semantic_docs())
 
 	rows: list[str] = []
 	pass_count = 0

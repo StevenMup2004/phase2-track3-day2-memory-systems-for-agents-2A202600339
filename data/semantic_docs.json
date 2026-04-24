@@ -1,34 +1,34 @@
 [
   {
-    "id": "faq-docker-service-name",
-    "text": "In Docker Compose, backend should call peer service by service name, not localhost.",
+    "id": "policy-qd17",
+    "text": "Theo quy chế nội bộ QD-17, khiếu nại cấp 1 phải được phản hồi trong 36 giờ.",
     "tags": [
-      "docker",
-      "networking"
+      "quy-che",
+      "khieu-nai"
     ]
   },
   {
-    "id": "faq-header-delete",
-    "text": "In FastAPI middleware, remove header via del response.headers['header-name'].",
+    "id": "policy-ht22",
+    "text": "Theo quy trình HT-22, hồ sơ KYC nhóm B phải lưu tối thiểu 18 tháng.",
     "tags": [
-      "fastapi",
-      "middleware"
+      "kyc",
+      "lưu-trữ"
     ]
   },
   {
-    "id": "faq-encoding",
-    "text": "On Windows, read source files with UTF-8 and errors='ignore' to avoid cp1252 decode crash.",
+    "id": "policy-bm47",
+    "text": "Theo hướng dẫn BM-47, giao dịch treo cần hoàn tiền trong 5 ngày làm việc.",
     "tags": [
-      "windows",
-      "encoding"
+      "hoan-tien",
+      "ngan-hang"
     ]
   },
   {
-    "id": "faq-git-scope",
-    "text": "Use git -C <repo> status and diff for repo-scoped checks when workspace has irrelevant extension diffs.",
+    "id": "policy-pl09",
+    "text": "Theo điều khoản PL-09, hợp đồng thử việc cần báo trước 3 ngày.",
     "tags": [
-      "git",
-      "workflow"
+      "hop-dong",
+      "lao-dong"
     ]
   }
 ]
