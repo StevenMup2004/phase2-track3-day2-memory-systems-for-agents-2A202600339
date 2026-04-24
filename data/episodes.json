@@ -1,0 +1,56 @@
+[
+  {
+    "user_id": "wm_5",
+    "task": "user_reported_task",
+    "outcome": "Đã fixed xong bug timeout cho API gateway.",
+    "metadata": {
+      "assistant_reply": "Mình đã ghi nhận. Bạn hãy cho mình thêm chi tiết nếu cần trợ giúp cụ thể."
+    },
+    "timestamp": "2026-04-24T05:14:23.423774+00:00"
+  },
+  {
+    "user_id": "wm_6",
+    "task": "user_reported_task",
+    "outcome": "Issue import report đã resolved và xong.",
+    "metadata": {
+      "assistant_reply": "Mình đã ghi nhận. Bạn hãy cho mình thêm chi tiết nếu cần trợ giúp cụ thể."
+    },
+    "timestamp": "2026-04-24T05:14:23.928276+00:00"
+  },
+  {
+    "user_id": "wm_5",
+    "task": "user_reported_task",
+    "outcome": "Đã fixed xong bug timeout cho API gateway.",
+    "metadata": {
+      "assistant_reply": "Bạn đã hoàn thành việc sửa lỗi timeout cho API gateway. Nếu cần hỗ trợ thêm, hãy cho tôi biết!"
+    },
+    "timestamp": "2026-04-24T05:36:33.683483+00:00"
+  },
+  {
+    "user_id": "wm_6",
+    "task": "user_reported_task",
+    "outcome": "Issue import report đã resolved và xong.",
+    "metadata": {
+      "assistant_reply": "The issue with the import report has been resolved and completed."
+    },
+    "timestamp": "2026-04-24T05:36:42.273918+00:00"
+  },
+  {
+    "user_id": "wm_5",
+    "task": "user_reported_task",
+    "outcome": "Đã fixed xong bug timeout cho API gateway.",
+    "metadata": {
+      "assistant_reply": "Bạn đã báo cáo rằng đã hoàn thành việc sửa lỗi timeout cho API gateway."
+    },
+    "timestamp": "2026-04-24T05:42:07.321391+00:00"
+  },
+  {
+    "user_id": "wm_6",
+    "task": "user_reported_task",
+    "outcome": "Issue import report đã resolved và xong.",
+    "metadata": {
+      "assistant_reply": "The issue with the import report has been resolved and completed."
+    },
+    "timestamp": "2026-04-24T05:42:14.445995+00:00"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": "faq-docker-service-name",
+    "text": "In Docker Compose, backend should call peer service by service name, not localhost.",
+    "tags": [
+      "docker",
+      "networking"
+    ]
+  },
+  {
+    "id": "faq-header-delete",
+    "text": "In FastAPI middleware, remove header via del response.headers['header-name'].",
+    "tags": [
+      "fastapi",
+      "middleware"
+    ]
+  },
+  {
+    "id": "faq-encoding",
+    "text": "On Windows, read source files with UTF-8 and errors='ignore' to avoid cp1252 decode crash.",
+    "tags": [
+      "windows",
+      "encoding"
+    ]
+  },
+  {
+    "id": "faq-git-scope",
+    "text": "Use git -C <repo> status and diff for repo-scoped checks when workspace has irrelevant extension diffs.",
+    "tags": [
+      "git",
+      "workflow"
+    ]
+  }
+]
