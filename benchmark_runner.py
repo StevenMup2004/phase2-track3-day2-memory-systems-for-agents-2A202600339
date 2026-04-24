@@ -101,9 +101,9 @@ def _build_scenarios() -> List[Scenario]:
 			8,
 			"Semantic retrieval: FastAPI header deletion",
 			[
-				"Chỉ đưa ra 1 dòng code duy nhất để remove header trong FastAPI middleware, không cần giải thích hay ví dụ.",
+				"Dựa trên tài liệu hướng dẫn nội bộ (semantic docs), lệnh chính xác để xóa header trong FastAPI middleware là gì? Chỉ xuất ra câu lệnh đó, không giải thích.",
 			],
-			("del response.headers", "del request.headers", "xóa header", "loại bỏ header", "del"),
+			("del response.headers", "del request.headers", "xóa header", "loại bỏ header", "del", "pop"),
 		),
 		Scenario(
 			9,
